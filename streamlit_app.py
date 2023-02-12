@@ -1,7 +1,5 @@
 import streamlit
 
-streamlit.title("Zena's Web Catalog")
-
 # Test connection 
 # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 # my_cur = my_cnx.cursor()
@@ -10,7 +8,6 @@ streamlit.title("Zena's Web Catalog")
 # streamlit.text("Hello from Snowflake:")
 # streamlit.text(my_data_row)
 
-import streamlit
 import snowflake.connector
 import pandas
 streamlit.title('Zena\'s Amazing Athleisure Catalog')
@@ -32,8 +29,7 @@ option = streamlit.selectbox('Pick a sweatsuit color or style:', list(color_list
 # We'll build the image caption now, since we can
 product_caption = 'Our warm, comfortable, ' + option + ' sweatsuit!'
 # use the option selected to go back and get all the info from the database
-my_cur.execute("select direct_url, price, size_list, upsell_product_desc from catalog_for_website where
-color_or_style = '" + option + "';")
+my_cur.execute("select direct_url, price, size_list, upsell_product_desc from catalog_for_website where color_or_style = '" + option + "';")
 df2 = my_cur.fetchone()
 streamlit.image(
 df2[0],
