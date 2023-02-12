@@ -3,7 +3,7 @@ import streamlit
 streamlit.title("Zena's Web Catalog")
 
 # Test connection 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowzena"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(),CURRENT_REGION()")
 my_data_row = my_cur.fetchone()
